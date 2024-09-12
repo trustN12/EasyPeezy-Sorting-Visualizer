@@ -54,6 +54,7 @@ const SelectionSortVisualizer = () => {
   };
 
   return (
+    <>
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
@@ -143,6 +144,105 @@ const SelectionSortVisualizer = () => {
         </div>
       </div>
     </motion.div>
+
+    <div className="flex flex-col items-center justify-center bg-black bg-opacity-30 p-8 rounded-3xl shadow-lg mt-12">
+      <motion.h2
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="text-4xl font-extrabold text-white text-center mb-4"
+      >
+        🧠 Understanding Selection Sort
+      </motion.h2>
+
+      {/* Introduction Section */}
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="text-lg text-gray-300 text-center leading-7 mb-8 max-w-3xl"
+      >
+        Selection Sort is a simple sorting algorithm that works by repeatedly finding the minimum (or maximum) element from an unsorted portion of the array and moving it to the beginning (or end) of the sorted portion. It’s easy to understand and implement but is not very efficient for large datasets.
+      </motion.p>
+
+      {/* Step-by-Step Visuals */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="w-full bg-gradient-to-r from-green-900 to-lime-600 text-white p-6 rounded-lg shadow-lg grid grid-cols-1 md:grid-cols-2 gap-6"
+      >
+        {/* Step 1 */}
+        <div className="flex flex-col items-center">
+          <h3 className="text-2xl font-bold mb-2">Step 1: Find Minimum</h3>
+          <p className="text-gray-300 mb-4">
+            Start by finding the smallest element in the unsorted portion of the array.
+          </p>
+          <div className="grid grid-cols-4 gap-2">
+            <div className="bg-green-400 text-white font-bold p-4 text-center rounded-lg">5</div>
+            <div className="bg-red-400 text-white font-bold p-4 text-center rounded-lg">3</div>
+            <div className="bg-blue-400 text-white font-bold p-4 text-center rounded-lg">8</div>
+            <div className="bg-yellow-400 text-white font-bold p-4 text-center rounded-lg">2</div>
+          </div>
+        </div>
+
+        {/* Step 2 */}
+        <div className="flex flex-col items-center">
+          <h3 className="text-2xl font-bold mb-2">Step 2: Swap Minimum</h3>
+          <p className="text-gray-300 mb-4">
+            Swap the smallest element found with the first element of the unsorted portion.
+          </p>
+          <div className="grid grid-cols-4 gap-2">
+            <div className="bg-yellow-400 text-white font-bold p-4 text-center rounded-lg">2</div>
+            <div className="bg-red-400 text-white font-bold p-4 text-center rounded-lg">3</div>
+            <div className="bg-blue-400 text-white font-bold p-4 text-center rounded-lg">8</div>
+            <div className="bg-green-400 text-white font-bold p-4 text-center rounded-lg">5</div>
+          </div>
+        </div>
+
+        {/* Step 3 */}
+        <div className="flex flex-col items-center">
+          <h3 className="text-2xl font-bold mb-2">Step 3: Move to Next</h3>
+          <p className="text-gray-300 mb-4">
+            Move the boundary of the sorted portion and repeat the process for the remaining unsorted portion.
+          </p>
+          <div className="grid grid-cols-4 gap-2">
+            <div className="bg-yellow-400 text-white font-bold p-4 text-center rounded-lg">2</div>
+            <div className="bg-red-400 text-white font-bold p-4 text-center rounded-lg">3</div>
+            <div className="bg-blue-400 text-white font-bold p-4 text-center rounded-lg">8</div>
+            <div className="bg-green-400 text-white font-bold p-4 text-center rounded-lg">5</div>
+          </div>
+        </div>
+
+        {/* Step 4 */}
+        <div className="flex flex-col items-center">
+          <h3 className="text-2xl font-bold mb-2">Step 4: Repeat</h3>
+          <p className="text-gray-300 mb-4">
+            Continue repeating the process until the entire array is sorted.
+          </p>
+          <div className="grid grid-cols-4 gap-2">
+            <div className="bg-yellow-400 text-white font-bold p-4 text-center rounded-lg">2</div>
+            <div className="bg-red-400 text-white font-bold p-4 text-center rounded-lg">3</div>
+            <div className="bg-green-400 text-white font-bold p-4 text-center rounded-lg">5</div>
+            <div className="bg-blue-400 text-white font-bold p-4 text-center rounded-lg">8</div>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Conclusion */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="bg-gradient-to-r from-pink-700 to-slate-950 text-white rounded-lg p-6 shadow-lg w-full mt-8"
+      >
+        <h3 className="text-2xl font-bold mb-4">Summary of Selection Sort</h3>
+        <p className="text-lg text-gray-300 leading-7">
+          Selection Sort is a simple and intuitive algorithm with a time complexity of O(n²). It works well for small datasets but is inefficient for larger arrays. By iteratively selecting the minimum element from the unsorted portion and moving it to the sorted portion, it eventually sorts the entire array.
+        </p>
+      </motion.div>
+    </div>
+    </>
   );
 };
 

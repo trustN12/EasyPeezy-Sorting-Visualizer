@@ -61,6 +61,7 @@ const QuickSortVisualizer = () => {
   };
 
   return (
+    <>
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
@@ -152,6 +153,106 @@ const QuickSortVisualizer = () => {
         </div>
       </div>
     </motion.div>
+
+    <div className="flex flex-col items-center justify-center bg-black bg-opacity-30 p-8 rounded-3xl shadow-lg mt-12">
+      <motion.h2
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="text-4xl font-extrabold text-white text-center mb-4"
+      >
+        🧠 Understanding Quick Sort
+      </motion.h2>
+
+      {/* Introduction Section */}
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="text-lg text-gray-300 text-center leading-7 mb-8 max-w-3xl"
+      >
+        Quick Sort is an efficient, divide-and-conquer sorting algorithm. It works by selecting a 'pivot' element from the array and partitioning the other elements into two sub-arrays, according to whether they are less than or greater than the pivot. The sub-arrays are then sorted recursively.
+      </motion.p>
+
+      {/* Step-by-Step Visuals */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="w-full bg-gradient-to-r from-cyan500 to-red-700 text-white p-6 rounded-lg shadow-lg grid grid-cols-1 md:grid-cols-2 gap-6"
+      >
+        {/* Step 1 */}
+        <div className="flex flex-col items-center">
+          <h3 className="text-2xl font-bold mb-2">Step 1: Choose a Pivot</h3>
+          <p className="text-gray-300 mb-4">
+            Select a pivot element from the array. Common choices are the first element, the last element, or a random element.
+          </p>
+          <div className="grid grid-cols-4 gap-2">
+            <div className="bg-red-400 text-white font-bold p-4 text-center rounded-lg">5</div>
+            <div className="bg-green-400 text-white font-bold p-4 text-center rounded-lg">3</div>
+            <div className="bg-blue-400 text-white font-bold p-4 text-center rounded-lg">8</div>
+            <div className="bg-yellow-400 text-white font-bold p-4 text-center rounded-lg">2</div>
+          </div>
+        </div>
+
+        {/* Step 2 */}
+        <div className="flex flex-col items-center">
+          <h3 className="text-2xl font-bold mb-2">Step 2: Partition</h3>
+          <p className="text-gray-300 mb-4">
+            Partition the array into two sub-arrays: one with elements less than the pivot and one with elements greater than the pivot.
+          </p>
+          <div className="grid grid-cols-4 gap-2">
+            <div className="bg-green-400 text-white font-bold p-4 text-center rounded-lg">2</div>
+            <div className="bg-red-400 text-white font-bold p-4 text-center rounded-lg">3</div>
+            <div className="bg-blue-400 text-white font-bold p-4 text-center rounded-lg">8</div>
+            <div className="bg-yellow-400 text-white font-bold p-4 text-center rounded-lg">5</div>
+          </div>
+        </div>
+
+        {/* Step 3 */}
+        <div className="flex flex-col items-center">
+          <h3 className="text-2xl font-bold mb-2">Step 3: Recursively Sort</h3>
+          <p className="text-gray-300 mb-4">
+            Recursively apply Quick Sort to the sub-arrays until each sub-array has one or zero elements.
+          </p>
+          <div className="grid grid-cols-4 gap-2">
+            <div className="bg-green-400 text-white font-bold p-4 text-center rounded-lg">2</div>
+            <div className="bg-yellow-400 text-white font-bold p-4 text-center rounded-lg">3</div>
+            <div className="bg-red-400 text-white font-bold p-4 text-center rounded-lg">5</div>
+            <div className="bg-blue-400 text-white font-bold p-4 text-center rounded-lg">8</div>
+          </div>
+        </div>
+
+        {/* Step 4 */}
+        <div className="flex flex-col items-center">
+          <h3 className="text-2xl font-bold mb-2">Step 4: Combine</h3>
+          <p className="text-gray-300 mb-4">
+            Combine the sorted sub-arrays with the pivot element to get the final sorted array.
+          </p>
+          <div className="grid grid-cols-4 gap-2">
+            <div className="bg-green-400 text-white font-bold p-4 text-center rounded-lg">2</div>
+            <div className="bg-yellow-400 text-white font-bold p-4 text-center rounded-lg">3</div>
+            <div className="bg-red-400 text-white font-bold p-4 text-center rounded-lg">5</div>
+            <div className="bg-blue-400 text-white font-bold p-4 text-center rounded-lg">8</div>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Conclusion */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="bg-gradient-to-r from-teal-700 to-purple-700 text-white rounded-lg p-6 shadow-lg w-full mt-8"
+      >
+        <h3 className="text-2xl font-bold mb-4">Summary of Quick Sort</h3>
+        <p className="text-lg text-gray-300 leading-7">
+          Quick Sort is an efficient sorting algorithm with an average time complexity of O(n log n). It is widely used due to its efficiency and simplicity. By choosing a pivot and partitioning the array around it, Quick Sort effectively sorts the array with a divide-and-conquer approach.
+        </p>
+      </motion.div>
+    </div>
+
+    </>
   );
 };
 

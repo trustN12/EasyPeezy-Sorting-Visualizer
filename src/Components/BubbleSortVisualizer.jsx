@@ -43,6 +43,7 @@ const BubbleSortVisualizer = () => {
   };
 
   return (
+    <>
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
@@ -137,6 +138,110 @@ const BubbleSortVisualizer = () => {
         </div>
       </motion.div>
     </motion.div>
+
+
+
+    <div className="flex flex-col items-center justify-center bg-black bg-opacity-30 p-8 rounded-3xl shadow-lg mt-12">
+  <motion.h2
+    initial={{ opacity: 0, y: -20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8 }}
+    className="text-4xl font-extrabold text-white text-center mb-4"
+  >
+    🧠 Understanding Bubble Sort
+  </motion.h2>
+
+  {/* Introduction Section */}
+  <motion.p
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8 }}
+    className="text-lg text-gray-300 text-center leading-7 mb-8 max-w-3xl"
+  >
+    Bubble Sort is a simple algorithm where we repeatedly compare adjacent elements in a list and swap them if they are in the wrong order. The largest values "bubble" to the end of the list after each pass. Let's break it down step-by-step with visuals.
+  </motion.p>
+
+  {/* Step-by-Step Visuals */}
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8 }}
+    className="w-full bg-gradient-to-r from-blue-900 to-blue-700 text-white p-6 rounded-lg shadow-lg grid grid-cols-1 md:grid-cols-2 gap-6"
+  >
+    {/* Step 1 */}
+    <div className="flex flex-col items-center">
+      <h3 className="text-2xl font-bold mb-2">Step 1: Compare & Swap</h3>
+      <p className="text-gray-300 mb-4">
+        Start by comparing the first two elements. If the left element is greater than the right, swap them.
+      </p>
+      <div className="grid grid-cols-4 gap-2">
+        <div className="bg-red-400 text-white font-bold p-4 text-center rounded-lg">5</div>
+        <div className="bg-green-400 text-white font-bold p-4 text-center rounded-lg">3</div>
+        <div className="bg-blue-400 text-white font-bold p-4 text-center rounded-lg">8</div>
+        <div className="bg-yellow-400 text-white font-bold p-4 text-center rounded-lg">2</div>
+      </div>
+    </div>
+
+    {/* Step 2 */}
+    <div className="flex flex-col items-center">
+      <h3 className="text-2xl font-bold mb-2">Step 2: Move to Next Pair</h3>
+      <p className="text-gray-300 mb-4">
+        Now, move to the next pair of elements and repeat the process.
+      </p>
+      <div className="grid grid-cols-4 gap-2">
+        <div className="bg-green-400 text-white font-bold p-4 text-center rounded-lg">3</div>
+        <div className="bg-red-400 text-white font-bold p-4 text-center rounded-lg">5</div>
+        <div className="bg-blue-400 text-white font-bold p-4 text-center rounded-lg">8</div>
+        <div className="bg-yellow-400 text-white font-bold p-4 text-center rounded-lg">2</div>
+      </div>
+    </div>
+
+    {/* Step 3 */}
+    <div className="flex flex-col items-center">
+      <h3 className="text-2xl font-bold mb-2">Step 3: Continue Until End</h3>
+      <p className="text-gray-300 mb-4">
+        Keep repeating the process until the largest element is at the end of the list.
+      </p>
+      <div className="grid grid-cols-4 gap-2">
+        <div className="bg-green-400 text-white font-bold p-4 text-center rounded-lg">3</div>
+        <div className="bg-blue-400 text-white font-bold p-4 text-center rounded-lg">5</div>
+        <div className="bg-yellow-400 text-white font-bold p-4 text-center rounded-lg">2</div>
+        <div className="bg-red-400 text-white font-bold p-4 text-center rounded-lg">8</div>
+      </div>
+    </div>
+
+    {/* Step 4 */}
+    <div className="flex flex-col items-center">
+      <h3 className="text-2xl font-bold mb-2">Step 4: Repeat</h3>
+      <p className="text-gray-300 mb-4">
+        Repeat the process for the rest of the list until all elements are sorted.
+      </p>
+      <div className="grid grid-cols-4 gap-2">
+        <div className="bg-green-400 text-white font-bold p-4 text-center rounded-lg">2</div>
+        <div className="bg-blue-400 text-white font-bold p-4 text-center rounded-lg">3</div>
+        <div className="bg-yellow-400 text-white font-bold p-4 text-center rounded-lg">5</div>
+        <div className="bg-red-400 text-white font-bold p-4 text-center rounded-lg">8</div>
+      </div>
+    </div>
+  </motion.div>
+
+  {/* Conclusion */}
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8 }}
+    className="bg-gradient-to-r from-purple-900 to-purple-700 text-white rounded-lg p-6 shadow-lg w-full mt-8"
+  >
+    <h3 className="text-2xl font-bold mb-4">Summary of Bubble Sort</h3>
+    <p className="text-lg text-gray-300 leading-7">
+      Bubble Sort is easy to understand but not very efficient for large datasets. Its time complexity in the worst case is O(n²), but it works well for smaller or nearly sorted arrays. By comparing and swapping adjacent elements, the largest values gradually move to the end of the list, and the process repeats until the entire array is sorted.
+    </p>
+  </motion.div>
+</div>
+
+
+
+    </>
   );
 };
 

@@ -79,6 +79,7 @@ const HeapSortVisualizer = () => {
   };
 
   return (
+    <>
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
@@ -167,6 +168,106 @@ const HeapSortVisualizer = () => {
         </div>
       </div>
     </motion.div>
+
+    <div className="flex flex-col items-center justify-center bg-black bg-opacity-30 p-8 rounded-3xl shadow-lg mt-12">
+      <motion.h2
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="text-4xl font-extrabold text-white text-center mb-4"
+      >
+        🧠 Understanding Heap Sort
+      </motion.h2>
+
+      {/* Introduction Section */}
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="text-lg text-gray-300 text-center leading-7 mb-8 max-w-3xl"
+      >
+        Heap Sort is a comparison-based sorting algorithm that uses a binary heap data structure. It first builds a max heap from the input data, then repeatedly extracts the maximum element from the heap and reconstructs the heap until the data is sorted.
+      </motion.p>
+
+      {/* Step-by-Step Visuals */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="w-full bg-gradient-to-r from-emerald-700 to-teal-900 text-white p-6 rounded-lg shadow-lg grid grid-cols-1 md:grid-cols-2 gap-6"
+      >
+        {/* Step 1 */}
+        <div className="flex flex-col items-center">
+          <h3 className="text-2xl font-bold mb-2">Step 1: Build Max Heap</h3>
+          <p className="text-gray-300 mb-4">
+            Convert the array into a max heap, where each parent node is greater than or equal to its child nodes.
+          </p>
+          <div className="grid grid-cols-4 gap-2">
+            <div className="bg-orange-400 text-white font-bold p-4 text-center rounded-lg">8</div>
+            <div className="bg-red-400 text-white font-bold p-4 text-center rounded-lg">5</div>
+            <div className="bg-blue-400 text-white font-bold p-4 text-center rounded-lg">3</div>
+            <div className="bg-green-400 text-white font-bold p-4 text-center rounded-lg">2</div>
+          </div>
+        </div>
+
+        {/* Step 2 */}
+        <div className="flex flex-col items-center">
+          <h3 className="text-2xl font-bold mb-2">Step 2: Extract Maximum</h3>
+          <p className="text-gray-300 mb-4">
+            Extract the maximum element (root of the heap) and place it at the end of the array.
+          </p>
+          <div className="grid grid-cols-4 gap-2">
+            <div className="bg-red-400 text-white font-bold p-4 text-center rounded-lg">5</div>
+            <div className="bg-blue-400 text-white font-bold p-4 text-center rounded-lg">3</div>
+            <div className="bg-green-400 text-white font-bold p-4 text-center rounded-lg">2</div>
+            <div className="bg-orange-400 text-white font-bold p-4 text-center rounded-lg">8</div>
+          </div>
+        </div>
+
+        {/* Step 3 */}
+        <div className="flex flex-col items-center">
+          <h3 className="text-2xl font-bold mb-2">Step 3: Rebuild Heap</h3>
+          <p className="text-gray-300 mb-4">
+            Rebuild the heap from the remaining elements to ensure the max heap property is maintained.
+          </p>
+          <div className="grid grid-cols-4 gap-2">
+            <div className="bg-red-400 text-white font-bold p-4 text-center rounded-lg">5</div>
+            <div className="bg-blue-400 text-white font-bold p-4 text-center rounded-lg">3</div>
+            <div className="bg-orange-400 text-white font-bold p-4 text-center rounded-lg">2</div>
+            <div className="bg-green-400 text-white font-bold p-4 text-center rounded-lg">8</div>
+          </div>
+        </div>
+
+        {/* Step 4 */}
+        <div className="flex flex-col items-center">
+          <h3 className="text-2xl font-bold mb-2">Step 4: Repeat</h3>
+          <p className="text-gray-300 mb-4">
+            Repeat the process until all elements are sorted and placed at the end of the array.
+          </p>
+          <div className="grid grid-cols-4 gap-2">
+            <div className="bg-red-400 text-white font-bold p-4 text-center rounded-lg">2</div>
+            <div className="bg-green-400 text-white font-bold p-4 text-center rounded-lg">3</div>
+            <div className="bg-blue-400 text-white font-bold p-4 text-center rounded-lg">5</div>
+            <div className="bg-orange-400 text-white font-bold p-4 text-center rounded-lg">8</div>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Conclusion */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="bg-gradient-to-r from-sky-900 to-purple-900 text-white rounded-lg p-6 shadow-lg w-full mt-8"
+      >
+        <h3 className="text-2xl font-bold mb-4">Summary of Heap Sort</h3>
+        <p className="text-lg text-gray-300 leading-7">
+          Heap Sort is an efficient sorting algorithm with a time complexity of O(n log n). It uses a binary heap to repeatedly extract the maximum (or minimum) element and rebuilds the heap. It’s useful for scenarios where a stable in-place sort is needed.
+        </p>
+      </motion.div>
+    </div>
+
+    </>
   );
 };
 
